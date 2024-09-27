@@ -22,22 +22,23 @@ print("Hello ",username," and welcome to your stand, ",standname,". Now that we 
 print("You have taken a loan from the bank for $100 to start your business\n")
 
 money = 100
+supplies = [['Sugar', 'Water', 'Cups','Lemons'], [0,0,0,0]]
 
 answer = input(str("Would you like to buy supplies for today? Yes/No\n"))
 if answer in ['y', 'Y', 'yes', 'Yes', 'YES']:
-    print('"1" for Sugar')
-    print('"2" for Water')
-    print('"3" for Cups')
-    print('"4" for Lemons')
+    print('For',supplies[0][0], 'press "1"')
+    print('For',supplies[0][1], 'press "2"')
+    print('For',supplies[0][2], 'press "3"')
+    print('For',supplies[0][3], 'press "4"')
     print('"5" to stop shopping')
     choice = int(input(''))
     
 while choice > 5:
     print(choice,'is not a valid option. Please try again.')
-    print('"1" for Sugar')
-    print('"2" for Water')
-    print('"3" for Cups')
-    print('"4" for Lemons')
+    print('For',supplies[0][0], 'press "1"')
+    print('For',supplies[0][1], 'press "2"')
+    print('For',supplies[0][2], 'press "3"')
+    print('For',supplies[0][3], 'press "4"')
     print('"5" to stop shopping')
     choice = int(input(''))
 
@@ -49,8 +50,31 @@ lemons_price = random.randint(2,7)
 if choice == 1:
     print("The price of Sugar today is: $",sugar_price, sep="")
     sugar_own = int(input('How much sugar would you like to buy today?\n'))
+elif choice == 2:
+    print("The price of Water today is: $",water_price, sep="")
+    water_own = int(input('How much sugar would you like to buy today?\n'))
+elif choice == 3:
+    print("The price of Cups today is: $",cups_price, sep="")
+    cups_own = int(input('How much sugar would you like to buy today?\n'))
+elif choice == 4:
+    print("The price of Lemons today is: $",lemon_price, sep="")
+    lemons_own = int(input('How much sugar would you like to buy today?\n'))
+else:
+    print('Would you like to buy supplies?')
     
 if sugar_own >= 1:
-    print('You now own',sugar_own,'items of sugar.')
+    print('You now own',sugar_own,'bags of sugar.')
     money = money-sugar_own*sugar_price
+    print('You have $',money,' left.',sep = '')
+elif water_own >= 1:
+    print('You now own',water_own,'bottles of water.')
+    money = money-water_own*water_price
+    print('You have $',money,' left.',sep = '')
+elif cups_own >= 1:
+    print('You now own',cups_own,'cups.')
+    money = money-cups_own*cups_price
+    print('You have $',money,' left.',sep = '')
+elif lemons_own >= 1:
+    print('You now own',lemons_own,'lemons.')
+    money = money-lemons_own*lemons_price
     print('You have $',money,' left.',sep = '')
