@@ -125,3 +125,9 @@ while choice != 6:
         print('To check your current supplies press 5')
         print('To open your business for the day press 6')
         choice = int(input(''))
+
+daily_temp = ['Cold', 'Warm', 'Hot']
+customers = 10
+
+if choice == 6:
+    print('Welcome to the start of the day. Today is a', (random.choice(daily_temp)), '.')
